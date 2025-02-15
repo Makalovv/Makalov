@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valentine</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to left, #ff99cc, #ff3366);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 80px auto;
+            transition: all 0.3s ease;
+        }
+        .envelope {
+            width: 180px;
+            height: 130px;
+            background-color: #ff3366;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.5s ease;
+        }
+        .envelope.open {
+            width: 250px;
+            height: 180px;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .envelope::after {
+            content: " ";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 160px;
+            height: 90px;
+            background-color: #fff;
+            border: 2px solid #ff3366;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ff3366;
+        }
+        .message p {
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff6699;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Valentine Messages🐱🦋</h2>
+        <div class="envelope" onclick="openEnvelope()"></div>
+        <div class="message">
+            <p>💖Valentine💖 ปีนี้เป็นปีแรกของเค้ากับเธอ แต่เราคงไม่ได้ไปหากันไม่ได้ไปไหนด้วยกัน เค้าอยากมอบของขวัญให้เธอสักชิ้นและเว็บนี้ที่เค้าทำขึ้นมาทำมาเพื่อเธอคนเดียว 💘
+                ✨วาเลนไทน์นี้เค้าอยากบอกเธอว่า เค้ามีความสุขมากเลยนะตั้งแต่มีเธอเค้ารอที่ได้คุยได้ฟังเสียงเธอทุกวันคิดถึงทุกวันและก็รักเธอมากขึ้นทุกวันอยากให้เธออยู่ดูแลเด็กดื้อคนนี้ไปตลอดเลยย✨
+                ของขวัญสำหรับไอ่เด็กดื้อคนนี้คือการได้ที่อยู่กับพี่ได้คุยได้ฟังเสียงพี่ได้เล่นเกมกับพี่ในทุกๆวัน อยากให้พี่อยู่เป็นของขวัญวันวาเลนไทน์แบบนี้ไปทุกๆปีเเลยนะ ไม่ว่าพี่จะเป็นอะไรก็ยังมีไอ่เด็กดื้อคนนี้อยู่ด้วยเสมอนะ
+                ไอ่เด็กคนนี้รักพี่มากเลยนะอยากกอดพี่ที่สุดด รักพี่ที่สุดเลยยย  อยากให้พี่รอเด็กคนนี้โตก่อนนะ อยู่กับเด็กคนนี้ไปนานๆนะ💗
+                <span id="dateMessage"></span></p>
+            <p>🌷รักพี่ที่สุดเลยนะครับ🌹</p>
+            <img src="https://i.imgur.com/DmyQpSn.png" alt="รูปภาพ" />
+            <br><br>
+            <button onclick="window.location.href='index.html'">กลับหน้าแรก</button>
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            const envelope = document.querySelector('.envelope');
+            const message = document.querySelector('.message');
+            envelope.classList.add('open');
+            setTimeout(() => {
+                message.style.display = 'block';
+                const date = localStorage.getItem('date');
+                const dateObj = new Date(date);
+                document.getElementById('dateMessage').innerText = `${dateObj.toLocaleDateString()}`;
+            }, 500);
+        }
+    </script>
+        <script>
+            document.addEventListener("click", function(e) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                document.body.appendChild(heart);
+                let x = e.clientX;
+                let y = e.clientY;
+                heart.style.left = x + "px";
+                heart.style.top = y + "px";
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            });
+        </script>
+</body>
+</html>

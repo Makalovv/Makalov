@@ -1,0 +1,187 @@
+/* style.css */
+
+/* เพิ่มพื้นหลังเป็นรูปหัวใจอนิเมชั่น */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: #ff99cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* หัวใจที่เคลื่อนไหว */
+.heart {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 150px;
+    height: 150px;
+    background-image: url('https://via.placeholder.com/150x150/ff3366/ffffff?text=♥');
+    background-size: cover;
+    animation: moveHeart 5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.heart:nth-child(2) {
+    animation-delay: 1s;
+    top: 20%;
+    left: 50%;
+}
+
+.heart:nth-child(3) {
+    animation-delay: 2s;
+    top: 60%;
+    left: 80%;
+}
+
+/* การเคลื่อนไหวหัวใจ */
+@keyframes moveHeart {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-30px); opacity: 0.6; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* สไตล์สำหรับกล่องใส่รหัสผ่าน */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 80px auto;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 24px;
+    color: #ff3366;
+    font-weight: bold;
+}
+
+input {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 2px solid #ff3366;
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: #ff6699;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6699;
+}
+
+button:active {
+    background-color: #ff4d6d;
+}
+
+/* ซองจดหมาย */
+.envelope {
+    width: 180px;
+    height: 130px;
+    background-color: #ff3366;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.envelope.open {
+    width: 250px;
+    height: 180px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.envelope::after {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 160px;
+    height: 90px;
+    background-color: #fff;
+    border: 2px solid #ff3366;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.message {
+    display: none;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff3366;
+}
+
+.message p {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff6699;
+}
+/* รูปแบบของหัวใจ */
+.heart {
+    position: absolute;
+    font-size: 30px;
+    pointer-events: none;  /* หลีกเลี่ยงไม่ให้หัวใจขวางการคลิก */
+    opacity: 1;
+}
+
+/* อนิเมชั่นให้หัวใจลอยขึ้น */
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-30px) scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-60px) scale(1.8);
+        opacity: 0;
+    }
+}
+
